@@ -307,4 +307,68 @@ public class SearchExecuteTest {
         assertEquals(null, result.getResultValue());
         assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
+    
+    //##########################################################################
+    //  DECRESCENT
+    //##########################################################################
+    
+    @Test
+    public void decr_less_farleft() {
+        
+        ResultType result = SearchExecute.search(getDecr(),30,SearchType.LessThan,decr);
+        
+        assertEquals(0, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_less_left() {
+        
+        ResultType result = SearchExecute.search(getDecr(),25,SearchType.LessThan,decr);
+        
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(20, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_less_centerdifferent() {
+        
+        ResultType result = SearchExecute.search(getDecr(),17,SearchType.LessThan,decr);
+        
+        assertEquals(2, result.getResultIndex().intValue());
+        assertEquals(15, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_less_centerequals() {
+        
+        ResultType result = SearchExecute.search(getDecr(),15,SearchType.LessThan,decr);
+        
+        assertEquals(3, result.getResultIndex().intValue());
+        assertEquals(10, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_less_right() {
+        
+        ResultType result = SearchExecute.search(getDecr(),5,SearchType.LessThan,decr);
+        
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_less_farright() {
+        
+        ResultType result = SearchExecute.search(getDecr(),0,SearchType.LessThan,decr);
+        
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
 }
