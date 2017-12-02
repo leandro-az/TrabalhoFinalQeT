@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Base;
 
-/**
- *
- * @author leandroall
- */
 public class ResultType {
   public enum SearchResult {
      NotFound,
@@ -20,9 +11,35 @@ public class ResultType {
  private Integer resultIndex;
  private Integer resultValue;
  
- public ResultType(SearchResult searchResult,Integer resultIndex,Integer resultValue) {
+  public ResultType(SearchResult searchResult,Integer resultIndex,Integer resultValue) {
     this.searchResult = searchResult;
     this.resultIndex = resultIndex;
     this.resultValue = resultValue;
  }
+
+    public SearchResult getSearchResult() {
+        return searchResult;
+    }
+
+    public void setSearchResult(SearchResult searchResult) {
+        this.searchResult = searchResult;
+    }
+
+    public Integer getResultIndex() {
+        return resultIndex;
+    }
+
+    public void setResultIndex(Integer resultIndex) {
+        this.resultIndex = resultIndex;
+    }
+
+    public Integer getResultValue() {
+        return resultValue;
+    }
+
+    public void setResultValue(Integer resultValue) {
+        this.resultValue = resultValue;
+    }
+ 
+
 }
