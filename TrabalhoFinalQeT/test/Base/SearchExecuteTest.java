@@ -24,8 +24,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),0,SearchType.LessThan);
         
-        assertEquals(-1, result.getResultIndex());
-        assertEquals(-1, result.getResultValue());
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
         assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
     
@@ -34,8 +34,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),5,SearchType.LessThan);
         
-        assertEquals(-1, result.getResultIndex());
-        assertEquals(-1, result.getResultValue());
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
         assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
     
@@ -44,8 +44,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),15,SearchType.LessThan);
         
-        assertEquals(1, result.getResultIndex());
-        assertEquals(10, result.getResultValue());
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(10, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
     }
     
@@ -54,8 +54,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),17,SearchType.LessThan);
         
-        assertEquals(1, result.getResultIndex());
-        assertEquals(10, result.getResultValue());
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(10, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
     }
     
@@ -64,8 +64,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),25,SearchType.LessThan);
         
-        assertEquals(3, result.getResultIndex());
-        assertEquals(20, result.getResultValue());
+        assertEquals(3, result.getResultIndex().intValue());
+        assertEquals(20, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
     }
     
@@ -74,8 +74,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),30,SearchType.LessThan);
         
-        assertEquals(4, result.getResultIndex());
-        assertEquals(25, result.getResultValue());
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
     }
     
@@ -84,8 +84,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),0,SearchType.LessThanEquals);
         
-        assertEquals(-1, result.getResultIndex());
-        assertEquals(-1, result.getResultValue());
+        assertEquals(null, result.getResultIndex().intValue());
+        assertEquals(null, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
     
@@ -94,8 +94,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),5,SearchType.LessThanEquals);
         
-        assertEquals(0, result.getResultIndex());
-        assertEquals(5, result.getResultValue());
+        assertEquals(0, result.getResultIndex().intValue());
+        assertEquals(5, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
     }
     
@@ -104,8 +104,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),15,SearchType.LessThanEquals);
         
-        assertEquals(2, result.getResultIndex());
-        assertEquals(15, result.getResultValue());
+        assertEquals(2, result.getResultIndex().intValue());
+        assertEquals(15, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
     }
     
@@ -114,8 +114,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),17,SearchType.LessThanEquals);
         
-        assertEquals(2, result.getResultIndex());
-        assertEquals(15, result.getResultValue());
+        assertEquals(2, result.getResultIndex().intValue());
+        assertEquals(15, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
     }
     
@@ -124,8 +124,8 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),25,SearchType.LessThanEquals);
         
-        assertEquals(4, result.getResultIndex());
-        assertEquals(25, result.getResultValue());
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
     }
     
@@ -134,8 +134,68 @@ public class SearchExecuteTest {
         
         ResultType result = SearchExecute.search(getCres(),30,SearchType.LessThanEquals);
         
-        assertEquals(4, result.getResultIndex());
-        assertEquals(25, result.getResultValue());
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
         assertEquals(ResultType.SearchResult.FoundLess,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_farleft() {
+        
+        ResultType result = SearchExecute.search(getCres(),0,SearchType.Equals);
+        
+        assertEquals(null, result.getResultIndex().intValue());
+        assertEquals(null, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_left() {
+        
+        ResultType result = SearchExecute.search(getCres(),5,SearchType.Equals);
+        
+        assertEquals(0, result.getResultIndex().intValue());
+        assertEquals(5, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_centerequals() {
+        
+        ResultType result = SearchExecute.search(getCres(),15,SearchType.Equals);
+        
+        assertEquals(2, result.getResultIndex().intValue());
+        assertEquals(15, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_centerdifferent() {
+        
+        ResultType result = SearchExecute.search(getCres(),17,SearchType.Equals);
+        
+        assertEquals(null, result.getResultIndex().intValue());
+        assertEquals(null, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_right() {
+        
+        ResultType result = SearchExecute.search(getCres(),25,SearchType.Equals);
+        
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void cres_equal_farright() {
+        
+        ResultType result = SearchExecute.search(getCres(),30,SearchType.Equals);
+        
+        assertEquals(null, result.getResultIndex().intValue());
+        assertEquals(null, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
     }
 }
