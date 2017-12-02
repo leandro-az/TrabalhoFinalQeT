@@ -45,7 +45,7 @@ public final class SearchExecute {
 
     private void searchLessThan(int[] array, int key, int modelOrdenation) {
                
-          for (int i = array.length-1 ; i==0 ; i--) {
+          for (int i = array.length-1 ; i>=0 ; i--) {
             if(array[i]<= key){
               result.setSearchResult(FoundLess);
               result.setResultIndex(i);
@@ -59,7 +59,7 @@ public final class SearchExecute {
     }
 
     private void searchLessThanEquals(int[] array, int key, int modelOrdenation) {
-          for (int i = array.length-1 ; i==0 ; i--) {
+          for (int i = array.length-1 ; i>=0 ; i--) {
             if(array[i]<=key){
               result.setSearchResult(FoundLess);
               result.setResultIndex(i);
@@ -79,8 +79,9 @@ public final class SearchExecute {
 
     private void searchEquals(int[] array, int key) {
          
-         for (int i = array.length-1 ; i==0 ; i--) {
+         for (int i = array.length-1 ; i>=0 ; i--) {
             if(array[i]== key){
+                System.out.println(">>>>"+ key);
               result.setSearchResult(FoundExact);
               result.setResultIndex(i);
               result.setResultValue(array[i]);               
@@ -90,7 +91,7 @@ public final class SearchExecute {
     }
     
      private void searchGreaterThan(int[] array, int key, int modelOrdenation) {
-       for (int i =0; i== array.length-1 ; i++) {
+       for (int i =0; i<= array.length-1 ; i++) {
             if(array[i]>= key){
               result.setSearchResult(FoundGreater);
               result.setResultIndex(i);
@@ -103,7 +104,7 @@ public final class SearchExecute {
     }
 
     private void searchGreaterThanEquals(int[] array, int key, int modelOrdenation) {
-       for (int i =0; i== array.length-1 ; i++) {
+       for (int i =0; i<= array.length-1 ; i++) {
             if(array[i]>= key){
               result.setSearchResult(FoundGreater);
               result.setResultIndex(i);
