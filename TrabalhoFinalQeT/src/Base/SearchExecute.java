@@ -46,7 +46,7 @@ public final class SearchExecute {
     private void searchLessThan(int[] array, int key, int modelOrdenation) {
                
           for (int i = array.length-1 ; i>=0 ; i--) {
-            if(array[i]<= key){
+            if(array[i]< key){
               result.setSearchResult(FoundLess);
               result.setResultIndex(i);
               result.setResultValue(array[i]); 
@@ -92,7 +92,7 @@ public final class SearchExecute {
     
      private void searchGreaterThan(int[] array, int key, int modelOrdenation) {
        for (int i =0; i<= array.length-1 ; i++) {
-            if(array[i]>= key){
+            if(array[i]> key){
               result.setSearchResult(FoundGreater);
               result.setResultIndex(i);
               result.setResultValue(array[i]);

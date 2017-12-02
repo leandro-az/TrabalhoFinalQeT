@@ -197,7 +197,7 @@ public class SearchExecuteTest {
         
         assertEquals(null, result.getResultIndex());
         assertEquals(null, result.getResultValue());
-        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
     
     @Test

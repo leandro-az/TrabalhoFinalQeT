@@ -16,7 +16,7 @@ public class ResultType {
     this.resultIndex = resultIndex;
     this.resultValue = resultValue;
  }
-
+  
     public SearchResult getSearchResult() {
         return searchResult;
     }
@@ -40,6 +40,10 @@ public class ResultType {
     public void setResultValue(Integer resultValue) {
         this.resultValue = resultValue;
     }
- 
 
+    @Override
+    public String toString() {
+        return "ResultType{" + "searchResult=" + searchResult + ", resultIndex=" + resultIndex + ", resultValue=" + resultValue + '}';
+    }
+ 
 }
