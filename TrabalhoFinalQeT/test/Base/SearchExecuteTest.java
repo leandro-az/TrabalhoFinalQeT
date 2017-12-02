@@ -491,4 +491,124 @@ public class SearchExecuteTest {
         assertEquals(null, result.getResultValue());
         assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
     }
+    
+    @Test
+    public void decr_greaterequals_farleft() {
+        
+        ResultType result = SearchExecute.search(getDecr(),30,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greaterequals_left() {
+        
+        ResultType result = SearchExecute.search(getDecr(),25,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(0, result.getResultIndex().intValue());
+        assertEquals(25, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greaterequals_centerdifferent() {
+        
+        ResultType result = SearchExecute.search(getDecr(),17,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(20, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greaterequals_centerequals() {
+        
+        ResultType result = SearchExecute.search(getDecr(),15,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(2, result.getResultIndex().intValue());
+        assertEquals(15, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greaterequals_right() {
+        
+        ResultType result = SearchExecute.search(getDecr(),5,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(5, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundExact,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greaterequals_farright() {
+        
+        ResultType result = SearchExecute.search(getDecr(),0,SearchType.GreaterThanEquals,decr);
+        
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(5, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_farleft() {
+        
+        ResultType result = SearchExecute.search(getDecr(),30,SearchType.GreaterThan,decr);
+        
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_left() {
+        
+        ResultType result = SearchExecute.search(getDecr(),25,SearchType.GreaterThan,decr);
+        
+        assertEquals(null, result.getResultIndex());
+        assertEquals(null, result.getResultValue());
+        assertEquals(ResultType.SearchResult.NotFound,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_centerdifferent() {
+        
+        ResultType result = SearchExecute.search(getDecr(),17,SearchType.GreaterThan,decr);
+        
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(20, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_centerequals() {
+        
+        ResultType result = SearchExecute.search(getDecr(),15,SearchType.GreaterThan,decr);
+        
+        assertEquals(1, result.getResultIndex().intValue());
+        assertEquals(20, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_right() {
+        
+        ResultType result = SearchExecute.search(getDecr(),5,SearchType.GreaterThan,decr);
+        
+        assertEquals(3, result.getResultIndex().intValue());
+        assertEquals(10, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
+    
+    @Test
+    public void decr_greater_farright() {
+        
+        ResultType result = SearchExecute.search(getDecr(),0,SearchType.GreaterThan,decr);
+        
+        assertEquals(4, result.getResultIndex().intValue());
+        assertEquals(5, result.getResultValue().intValue());
+        assertEquals(ResultType.SearchResult.FoundGreater,result.getSearchResult());
+    }
 }
