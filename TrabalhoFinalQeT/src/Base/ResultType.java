@@ -8,8 +8,8 @@ public class ResultType {
      FoundLess
  }
  private SearchResult searchResult;
- private Integer resultIndex;
- private Integer resultValue;
+ private int resultIndex;
+ private int resultValue;
  
   public ResultType(SearchResult searchResult,Integer resultIndex,Integer resultValue) {
     this.searchResult = searchResult;
@@ -25,19 +25,19 @@ public class ResultType {
         this.searchResult = searchResult;
     }
 
-    public Integer getResultIndex() {
+    public int getResultIndex() {
         return resultIndex;
     }
 
-    public void setResultIndex(Integer resultIndex) {
+    public void setResultIndex(int resultIndex) {
         this.resultIndex = resultIndex;
     }
 
-    public Integer getResultValue() {
+    public int getResultValue() {
         return resultValue;
     }
 
-    public void setResultValue(Integer resultValue) {
+    public void setResultValue(int resultValue) {
         this.resultValue = resultValue;
     }
  
