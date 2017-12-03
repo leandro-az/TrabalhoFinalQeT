@@ -81,7 +81,6 @@ public final class SearchExecute {
          
          for (int i = array.length-1 ; i>=0 ; i--) {
             if(array[i]== key){
-                System.out.println(">>>>"+ key);
               result.setSearchResult(FoundExact);
               result.setResultIndex(i);
               result.setResultValue(array[i]);               
