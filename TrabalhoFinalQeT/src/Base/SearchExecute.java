@@ -19,6 +19,7 @@ public final class SearchExecute {
                         result.setSearchResult(FoundLess);
                         result.setResultIndex(i);
                         result.setResultValue(array[i]);
+                        
                     }
                     break;
                 case LessThanEquals:
@@ -30,6 +31,7 @@ public final class SearchExecute {
                         result.setSearchResult(FoundExact);
                         result.setResultIndex(i);
                         result.setResultValue(array[i]);
+                        return result;
                     }
                     break;
                 case Equals:
