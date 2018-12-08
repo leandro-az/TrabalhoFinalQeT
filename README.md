@@ -8,4 +8,4 @@ Made by:
 Leandro Almeida
 Lucas Timoteo
 
-Utilizando JUnit e visando diminuir o possível a complexidade ciclomática
+Using JUnit with the goal of reducing the possible cyclomatic complexity.
