@@ -7,3 +7,5 @@ Made by:
 
 Leandro Almeida
 Lucas Timoteo
+
+Utilizando JUnit e visando diminuir o possível a complexidade ciclomática
